@@ -26,6 +26,7 @@ set n4 [$ns node]
 set n5 [$ns node]
 set n6 [$ns node]
 
+
 $ns duplex-link $n1 $n0 1Mb 10ms DropTail
 $ns duplex-link $n2 $n0 1Mb 10ms DropTail
 $ns duplex-link $n4 $n0 1Mb 10ms DropTail
@@ -33,10 +34,10 @@ $ns duplex-link $n3 $n0 1Mb 10ms DropTail
 $ns duplex-link $n5 $n0 1Mb 10ms DropTail
 $ns duplex-link $n6 $n0 1Mb 10ms DropTail
 
-
+#Here, i just removed the '/'
 Agent/Ping instproc recv {from rtt} {
 $self instvar node_
-puts "node [$node_ id] recieved ping answer from \ $from with round-trip-time $rtt ms"
+puts "node [$node_ id] recieved ping answer from $from with round-trip-time $rtt ms"
 }
 
 set p1 [new Agent/Ping]
@@ -52,6 +53,12 @@ $ns attach-agent $n3 $p3
 $ns attach-agent $n4 $p4
 $ns attach-agent $n5 $p5
 $ns attach-agent $n6 $p6
+
+#We need to set the queue limit to show some drop of packets. Following values are just random queue limit values, 
+#Any value like 1,2,3 is a perfect one. 
+$ns queue-limit $n0 $n4 3
+$ns queue-limit $n0 $n5 2
+$ns queue-limit $n0 $n6 2
 
  
 $ns connect $p1 $p4
