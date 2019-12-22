@@ -43,9 +43,13 @@ $ftp0 attach-agent $tcp0
 
 $ns color 1 Red
 
+
 #UDP-1 connect Sink-3 CBR on UDP
 set udp1 [new Agent/UDP]
 $ns attach-agent $n1 $udp1
+
+$udp0 set fid_ 1 
+#fid_ here, stands for the flow id. 
 
 set null31 [new Agent/Null]
 $ns attach-agent $n3 $null31
