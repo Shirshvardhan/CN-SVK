@@ -14,7 +14,8 @@ if (event=="r")
 }
 }
 END{
-printf("dropped\n"ndcount);
-printf("recived\n",rcoount);
+printf("\ndropped:\t"dcount);
+printf("\nrecived:\t"rcount);
+printf("\n")
 }
 
