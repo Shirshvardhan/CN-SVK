@@ -56,7 +56,7 @@ $ns attach-agent $n6 $p6
 
 #We need to set the queue limit to show some drop of packets. Following values are just random queue limit values, 
 #Any value like 1,2,3 is a perfect one. 
-$ns queue-limit $n0 $n4 3
+$ns queue-limit $n0 $n4 0
 $ns queue-limit $n0 $n5 2
 $ns queue-limit $n0 $n6 2
 
